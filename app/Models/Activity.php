@@ -13,6 +13,8 @@ class Activity extends Model
         'rencana_aktifitas',
         'laporan_aktifitas',
         'progres_harian',
+        'foto1', // Kolom foto1
+        'foto2', // Kolom foto2
     ];
 
     // Relasi dengan model User

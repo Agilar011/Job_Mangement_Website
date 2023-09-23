@@ -15,6 +15,8 @@ class CreateActivityTable extends Migration
             $table->text('laporan_aktifitas')->nullable();
             $table->integer('progres_harian')->default(0);
             $table->timestamps();
+            $table->string('foto1')->nullable();
+            $table->string('foto2')->nullable();
 
             // Menambahkan foreign key constraint
             $table->foreign('id_user')->references('id')->on('users');
