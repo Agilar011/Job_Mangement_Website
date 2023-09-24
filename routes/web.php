@@ -17,6 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/presensi', function () {
+    return view('ui.presensi');
+});
+
+Route::get('/aktivitas', function () {
+    return view('ui.aktivitas');
+});
+
+
+
 
 
 Route::middleware([
