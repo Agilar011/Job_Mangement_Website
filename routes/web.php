@@ -19,22 +19,17 @@ Route::get('/', function () {
 
 Route::get('/presensi', function () {
     return view('ui.presensi');
-});
+})->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
 
 Route::get('/aktivitas', function () {
     return view('ui.aktivitas');
-});
-
-
-
-
+})->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::redirect('/dashboard', '/presensi'); // Mengarahkan /dashboard ke /presensi
 });
+
