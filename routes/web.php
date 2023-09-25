@@ -30,7 +30,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-])->group(function () {
+])->group(function ()    {
     Route::get('/presensi', function () {
         return view('ui.presensi');
     })->name('presensi');

@@ -62,12 +62,7 @@
                 <div class="btn-check">
                     <button class="check-in" type="submit">Check Out</button>
                 </div>
-                @php
-                    $checkInToday = DB::table('activity')
-                        ->whereDate('created_at', now()->toDateString())
-                        ->where('id_user', auth()->id())
-                        ->exists();
-                @endphp
+
 
             </section>
         </form>
