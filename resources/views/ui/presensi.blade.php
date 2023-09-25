@@ -27,7 +27,7 @@
                 ->where('id_user', auth()->id())
                 ->exists();
         @endphp
-        <form method="POST" action="{{ route('checkin.checkin') }}" >
+        <form method="POST" action="{{ route('checkin.checkin') }}">
             @csrf <!-- Tambahkan CSRF token -->
             <section class="content px-5" id="checkInSection"
                 @if ($checkInToday) style="display: none;" @endif>
@@ -43,7 +43,8 @@
 
         <form method="POST" action="{{ route('checkout.checkout') }}" enctype="multipart/form-data">
             @csrf <!-- Tambahkan CSRF token -->
-            <section class="content px-5" id="checkOutSection" @unless ($checkInToday) style="display: none;" @endunless>
+            <section class="content px-5" id="checkOutSection"
+                @unless ($checkInToday) style="display: none;" @endunless>
                 <h5>Laporan Hari ini :</h5>
                 <textarea class="form-control bg-white" id="deskripsiCheckOut" placeholder="Apa yang telah kamu kerjakan hari ini?"
                     name="deskripsi" required></textarea>
@@ -61,8 +62,16 @@
                 <div class="btn-check">
                     <button class="check-in" type="submit">Check Out</button>
                 </div>
+                @php
+                    $checkInToday = DB::table('activity')
+                        ->whereDate('created_at', now()->toDateString())
+                        ->where('id_user', auth()->id())
+                        ->exists();
+                @endphp
+
             </section>
         </form>
+
 
         {{-- <section class="content px-5" id="checkOutSection">
             <h5>Laporan Hari ini :</h5>
