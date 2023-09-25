@@ -11,7 +11,7 @@ class Presensi extends Model
     protected $fillable = [
         'id_users',
         'waktu_checkin',
-        'rencana',
+        // 'rencana',
         'waktu_checkout',
         'laporan',
         'status_presensi',

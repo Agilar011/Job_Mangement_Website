@@ -12,7 +12,7 @@ class CreatePresensiTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_users');
             $table->timestamp('waktu_checkin');
-            $table->timestamp('rencana');
+            // $table->timestamp('rencana');
             $table->timestamp('waktu_checkout')->nullable();
             $table->text('laporan')->nullable();
             $table->string('status_presensi');

@@ -218,7 +218,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <h5 class="d-block" style="font-size: 17px">Alexander Pierce</h5>
+                        <h5 class="d-block" style="font-size: 17px">{{ Auth::user()->name }}</h5>
                     </div>
 
                 </div>
@@ -227,7 +227,7 @@
 
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a href="/stok-warehouse" class="nav-link">
+                            <a href="{{ route('profile.show') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Profile
@@ -235,12 +235,26 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/stok-warehouse" class="nav-link">
+                            {{-- <a href="{{ route('logout') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Keluar
                                 </p>
-                            </a>
+                            </a> --}}
+
+                            <form action="{{ route('logout') }}" method="POST" class="nav-link">
+                                @csrf
+                                <button type="submit" style="border: none; background: none; padding: 0; cursor: pointer; color: red">
+                                    <i class="nav-icon fas fa-sign-out-alt"></i>
+                                    <p>
+                                        Keluar
+                                    </p>
+                                </button>
+                            </form>
+
+                            <div>
+
+                            </div>
                         </li>
                     </ul>
                 </div>
