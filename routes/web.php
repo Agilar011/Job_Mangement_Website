@@ -18,26 +18,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/presensi', function () {
-    return view('ui.presensi');
-});
+// Route::get('/presensi', function () {
+//     return view('ui.presensi');
+// });
 
 Route::get('/aktivitas', function () {
     return view('ui.aktivitas');
 });
-
-
-
-
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dasboard', function () {
-        return view('dasboard');
-    })->name('dasboard');
+    Route::get('/presensi', function () {
+        return view('ui.presensi');
+    })->name('presensi');
 });
 
 Route::get('/presensi/{id}', [ActivityController::class, 'index'])->name('displayPresensi');

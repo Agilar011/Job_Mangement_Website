@@ -23,6 +23,7 @@
         <!-- /.content-header -->
 
         <!-- Main content -->
+
         <section class="content px-5" id="checkInSection">
             <h5>Rencana Kegiatan :</h5>
             <textarea class="form-control bg-white" id="deskripsiCheckIn" placeholder="Hari ini rencana mau ngapain..."
