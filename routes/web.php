@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ActivityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,11 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/presensi', function () {
-        return view('presensi');
-    })->name('presensi');
+    Route::get('/dasboard', function () {
+        return view('dasboard');
+    })->name('dasboard');
 });
+
+Route::get('/presensi/{id}', [ActivityController::class, 'index'])->name('displayPresensi');
+Route::post('/checkin/checkin', [ActivityController::class, 'checkIn'])->name('checkin.checkin');
+Route::post('/checkout/checkout', [ActivityController::class, 'checkOut'])->name('checkout.checkout');
