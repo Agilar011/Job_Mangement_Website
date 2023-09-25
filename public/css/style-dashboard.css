@@ -1,0 +1,51 @@
+.content{
+
+    display: grid;
+    align-items: center;
+    width: 100%;
+}
+
+.content h5{
+    color: green;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.content h5 span{
+    color: rgb(0, 0, 0);
+}
+
+.content .btn-check{
+    margin-top: 60px;
+}
+
+.content .btn-check .check-in{
+    background-color: #1FA809;
+    color: white;
+    width: 10%;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.content .btn-check .check-in:hover {
+    background-color: #1ea809ae;
+    color: #fff;
+    transform: scale(1);
+}
+
+.content textarea {
+    min-height: 200px;
+    margin-top: 30px;
+}
+
+.content .foto-doc{
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.content .skala-progress{
+    margin-top: 20px;
+}

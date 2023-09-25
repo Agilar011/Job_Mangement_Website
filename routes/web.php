@@ -17,13 +17,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/presensi', function () {
+    return view('ui.presensi');
+});
+
+Route::get('/aktivitas', function () {
+    return view('ui.aktivitas');
+});
+
+
+
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/presensi', function () {
+        return view('presensi');
+    })->name('presensi');
 });
-
