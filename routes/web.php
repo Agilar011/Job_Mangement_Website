@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,10 @@ Route::middleware([
 Route::get('/presensi/{id}', [ActivityController::class, 'index'])->name('displayPresensi');
 Route::post('/checkin/checkin', [ActivityController::class, 'checkIn'])->name('checkin.checkin');
 Route::post('/checkout/checkout', [ActivityController::class, 'checkOut'])->name('checkout.checkout');
+Route::get('/aktivitas', [ActivityController::class, 'showActivity'])->name('showActivity');
+Route::get('/users', [ActivityController::class, 'showUser'])->name('showUser');
+Route::post('/changerole/{id}', [UserController::class, 'changeRole'])->name('changeRole');
+Route::post('/deleteuse/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
+Route::get('/updateUSer/{id}', [UserController::class, 'updateUser'])->name('updateUser');
+Route::post('/updateUSer/{id}', [UserController::class, 'updateUser'])->name('updateUser');
+

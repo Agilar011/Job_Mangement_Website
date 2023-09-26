@@ -38,29 +38,42 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td scope="row">Adimas Surya</td>
-                        <td>
-                            Jl. Dr Sutomo no. 4B
-                        </td>
-                        <td>
-                            081232955727
-                        </td>
-                        <td>
-                           Admin Purchasing
-                        </td>
-                        <td>
-                            Admin
-                        </td>
-                        <td>
-                            19/09/2023
-                        </td>
-                        <td style="display: grid; align-items:center; justify-content:start; gap:2px;">
-                            <button type="button" class="btn btn-success">Change</button>
-                            <button type="button" class="btn btn-primary">Update</button>
-                            <button type="button" class="btn btn-danger">Hapus</button>
-                        </td>
-                    </tr>
+                    @foreach ($user as $user)
+                        <tr>
+                            <td scope="row">{{ $user->name }}</td>
+                            <td>
+                                {{ $user->alamat }}
+                            </td>
+                            <td>
+                                {{ $user->no_telp }}
+                            </td>
+                            <td>
+                                Admin Purchasing
+                            </td>
+                            <td>
+                                {{ $user->role }}
+                            </td>
+                            <td>
+                                {{ $user->tanggal_daftar }}
+
+                            </td>
+                            <td style="display: grid; align-items:center; justify-content:start; gap:2px;">
+                                <form method="POST" action="{{ route('changeRole', $user->id) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">Ubah Peran</button>
+                                </form>
+                                <form method="POST" action="{{ route('updateUser', $user->id) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </form>
+                                <form method="POST" action="{{ route('deleteUser', $user->id) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+
 
                 </tbody>
             </table>
@@ -68,5 +81,4 @@
 
         <!-- /.content -->
     </div>
-
 @endsection

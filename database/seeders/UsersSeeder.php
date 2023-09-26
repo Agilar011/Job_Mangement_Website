@@ -17,7 +17,7 @@ class UsersSeeder extends Seeder
             'alamat' => 'Jl Klayatan',
             'no_telp' => '1234567890',
             'password' => Hash::make('password'),
-            'role' => 'user',
+            'role' => 'admin',
             'tanggal_daftar' => Carbon::now(),
         ]);
         // Tambahkan data dummy lainnya sesuai kebutuhan

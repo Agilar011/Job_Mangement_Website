@@ -39,34 +39,116 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td scope="row">26/09/2023</td>
-                        <td>
-                            Adimas Surya
-                        </td>
-                        <td>
-                            07:45:12
-                        </td>
-                        <td style="max-width: 120px">
-                           Rekap Laporan Penjualan Toko bulan september
-                        </td>
-                        <td>
-                            16:45:12
-                        </td>
-                        <td style="max-width: 120px">
-                            - Rekap Laporan Penjualan Toko bulan september ✅ <br>
-                            - Melaksanakan audit di Toko jl. Wr Supratman ✅ <br>
-                            - Membuat Pricetag toko jl. Wr Supratman ✅ <br>
+                    @if (Auth::user()->role == 'admin')
+                        <!-- Memeriksa apakah pengguna memiliki peran 'admin' -->
+                        <!-- Tampilkan konten khusus untuk pengguna dengan peran 'admin' -->
+                        <p>Selamat datang, Admin!</p>
+                        @if (!empty($activities))
+                            <ul>
+                                @foreach ($activities as $activity)
+                                    <tr>
+                                        <td scope="row">{{ date('d-m-Y', strtotime($activity->created_at)) }}</td>
+                                        <td>
+                                            {{ $activity->user->name }}
+                                        </td>
+                                        <td>{{ date('H:i', strtotime($activity->created_at)) }}</td>
+                                        <td style="max-width: 120px">
+                                            {{ $activity->rencana_aktifitas }}
+                                        </td>
+                                        <td>
+                                            @if ($activity->updated_at != null)
+                                                {{ date('H:i', strtotime($activity->updated_at)) }}
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
+                                        <td style="max-width: 120px; white-space: pre;">
+                                            @if ($activity->laporan_aktifitas != null)
+                                                {{ $activity->laporan_aktifitas }}
+                                            @else
+                                                -
+                                            @endif
 
-                         </td>
-                         <td>
+                                        </td>
+                                        <td>
+                                            @if ($activity->foto1 != null)
+                                                <img src="{{ asset('public/checkout_photos/' . $activity->foto1) }}"
+                                                    alt="" style="width: 100px">
+                                            @else
+                                                -
+                                            @endif
 
-                         </td>
-                        <td>
-                            {{-- <button type="button" class="btn btn-primary">Update</button> --}}
-                            <button type="button" class="btn btn-danger">Hapus</button>
-                        </td>
-                    </tr>
+                                            @if ($activity->foto2 != null)
+                                                <img src="{{ asset('public/checkout_photos/' . $activity->foto2) }}"
+                                                    alt="" style="width: 100px">
+                                            @else
+                                                -
+                                            @endif
+
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary">Update</button>
+                                            <button type="button" class="btn btn-danger">Hapus</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </ul>
+                        @endif
+                    @else
+                        <!-- Tampilkan konten khusus untuk pengguna dengan peran selain 'admin' -->
+                        <p>Selamat datang, Pengguna!</p>
+                        @if (!empty($activityUser))
+                            <ul>
+                                @foreach ($activityUser as $activity)
+                                    <tr>
+                                        <td scope="row">{{ date('d-m-Y', strtotime($activity->created_at)) }}</td>
+                                        <td>
+                                            {{ $activity->user->name }}
+                                        </td>
+                                        <td>{{ date('H:i', strtotime($activity->created_at)) }}</td>
+                                        <td style="max-width: 120px">
+                                            {{ $activity->rencana_aktifitas }}
+                                        </td>
+                                        <td>
+                                            @if ($activity->updated_at != null)
+                                                {{ date('H:i', strtotime($activity->updated_at)) }}
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
+                                        <td style="max-width: 120px">
+                                            @if ($activity->laporan_aktifitas != null)
+                                                {{ $activity->laporan_aktifitas }}
+                                            @else
+                                                -
+                                            @endif
+
+                                        </td>
+                                        <td>
+                                            @if ($activity->foto1 != null)
+                                                <img src="{{ asset('public/checkout_photos/' . $activity->foto1) }}"
+                                                    alt="" style="width: 100px">
+                                            @else
+                                                -
+                                            @endif
+
+                                            @if ($activity->foto2 != null)
+                                                <img src="{{ asset('public/checkout_photos/' . $activity->foto2) }}"
+                                                    alt="" style="width: 100px">
+                                            @else
+                                                -
+                                            @endif
+
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary">Update</button>
+                                            <button type="button" class="btn btn-danger">Hapus</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </ul>
+                        @endif
+                    @endif
 
                 </tbody>
             </table>
@@ -74,5 +156,4 @@
 
         <!-- /.content -->
     </div>
-
 @endsection
