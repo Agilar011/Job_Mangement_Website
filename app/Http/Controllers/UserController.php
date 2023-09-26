@@ -95,7 +95,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         return view('ui.update-users', compact('user'));
     }
-    public function storeUpdateUser($id, $request)
+    public function storeUpdateUser(Request $id, $request)
     {
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
@@ -103,7 +103,8 @@ class UserController extends Controller
         $user->no_telp = $request->input('no_telp');
         $user->alamat = $request->input('alamat');
         $user->save();
-        return view('ui.users', compact('user'));
+        dd($user);
+        return redirect()->route('ui.users')->with('success', 'Pengguna berhasil diperbarui.');
     }
 
 }

@@ -44,6 +44,6 @@ Route::get('/aktivitas', [ActivityController::class, 'showActivity'])->name('sho
 Route::get('/users', [ActivityController::class, 'showUser'])->name('showUser');
 Route::post('/changerole/{id}', [UserController::class, 'changeRole'])->name('changeRole');
 Route::post('/deleteuse/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
-Route::get('/updateUSer/{id}', [UserController::class, 'updateUser'])->name('updateUser');
-Route::post('/updateUSer/{id}', [UserController::class, 'updateUser'])->name('updateUser');
+Route::post('/updateUser/{id}', [UserController::class, 'updateUser'])->name('updateUser');
+Route::post('/storeUpdateUser/{id}', [UserController::class, 'storeUpdateUser'])->name('storeUpdateUser');
 

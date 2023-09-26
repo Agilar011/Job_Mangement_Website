@@ -58,14 +58,17 @@
 
                             </td>
                             <td style="display: grid; align-items:center; justify-content:start; gap:2px;">
+
                                 <form method="POST" action="{{ route('changeRole', $user->id) }}">
                                     @csrf
                                     <button type="submit" class="btn btn-success">Ubah Peran</button>
                                 </form>
+
                                 <form method="POST" action="{{ route('updateUser', $user->id) }}">
                                     @csrf
                                     <button type="submit" class="btn btn-primary">Update</button>
                                 </form>
+
                                 <form method="POST" action="{{ route('deleteUser', $user->id) }}">
                                     @csrf
                                     <button type="submit" class="btn btn-danger">Hapus</button>

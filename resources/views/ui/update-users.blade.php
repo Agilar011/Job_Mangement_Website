@@ -27,38 +27,38 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body bg-white">
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('updateUser', ['id' => $user->id]) }}">
                                 @csrf
                                 {{-- @method('PUT') --}}
 
                                 <div class="form-group">
                                     <label for="nama_lengkap">Nama Lengkap</label>
-                                    <input type="text" name="nama_lengkap" class="form-control" value="" style="background: white; color:#000;" required>
+                                    <input type="text" name="name" class="form-control" style="background: white; color:#000;" value="{{ $user->name }}" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control" value="" style="background: rgb(233, 232, 232); color:#000;" disabled>
+                                    <input type="email" name="email" class="form-control" style="background: rgb(233, 232, 232); color:#000;"value="{{ $user->email }}" disabled>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
-                                    <textarea name="alamat" class="form-control" style="background: white; color:#000;" required></textarea>
+                                    <textarea name="alamat" class="form-control" style="background: white; color:#000;" value="{{ $user->alamat }}" required></textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="no_telp">Nomor Telepon</label>
-                                    <input type="text" name="no_telp" class="form-control" value="" style="background: white; color:#000;" required>
+                                    <input type="text" name="no_telp" class="form-control" style="background: white; color:#000;" value="{{ $user->no_telp }}" required>
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="status">Status</label>
-                                    <input type="text" name="status" class="form-control" value="" style="background: rgb(233, 232, 232); color:#000;" disabled>
-                                </div>
+                                    <input type="text" name="status" class="form-control"   style="background: rgb(233, 232, 232); color:#000;" disabled>
+                                </div> --}}
 
                                 <div class="form-group">
                                     <label for="tgl_join">Tanggal Join</label>
-                                    <input type="date" name="tgl_join" class="form-control" value="" style="background: white; color:#000;" disabled>
+                                    <input type="date" name="tgl_join" class="form-control" style="background: white; color:#000;" value="{{ $user->created_at->format('Y-m-d') }}" disabled>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Update</button>
