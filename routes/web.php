@@ -25,8 +25,13 @@ Route::get('/aktivitas', function () {
     return view('ui.aktivitas');
 });
 
+Route::get('/aktivitas', function () {
+    return view('ui.aktivitas');
+});
 
-
+Route::get('/users', function () {
+    return view('ui.users');
+});
 
 
 Route::middleware([

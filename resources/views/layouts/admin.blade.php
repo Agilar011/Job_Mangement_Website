@@ -287,10 +287,12 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="/stok-request" class="nav-link">
+                            <a href="/users" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Data Pengguna
+
+                                    {{-- notif --}}
                                     <span class="right badge badge-danger">New</span>
                                 </p>
                             </a>
