@@ -33,6 +33,10 @@ Route::get('/users', function () {
     return view('ui.users');
 });
 
+Route::get('/updateUsers', function () {
+    return view('ui.update-users');
+});
+
 
 Route::middleware([
     'auth:sanctum',
