@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0" style="color: #000;">AKTIVITAS HARIAN</h1>
+                        <h1 class="m-0" style="color: #000;">DATA PENGGUNA</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -28,42 +28,36 @@
             <table class="table table-hover">
                 <thead>
                     <tr class="table-success">
-                        <th scope="col">Tanggal</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Wkt. Check In</th>
-                        <th scope="col">Rencana</th>
-                        <th scope="col">Wkt. Check Out</th>
-                        <th scope="col">Laporan</th>
-                        <th scope="col">Foto</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">No Telp</th>
+                        <th scope="col">Divisi</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Tgl Join</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td scope="row">26/09/2023</td>
+                        <td scope="row">Adimas Surya</td>
                         <td>
-                            Adimas Surya
+                            Jl. Dr Sutomo no. 4B
                         </td>
                         <td>
-                            07:45:12
-                        </td>
-                        <td style="max-width: 120px">
-                           Rekap Laporan Penjualan Toko bulan september
+                            081232955727
                         </td>
                         <td>
-                            16:45:12
+                           Admin Purchasing
                         </td>
-                        <td style="max-width: 120px">
-                            - Rekap Laporan Penjualan Toko bulan september ✅ <br>
-                            - Melaksanakan audit di Toko jl. Wr Supratman ✅ <br>
-                            - Membuat Pricetag toko jl. Wr Supratman ✅ <br>
-
-                         </td>
-                         <td>
-
-                         </td>
                         <td>
-                            {{-- <button type="button" class="btn btn-primary">Update</button> --}}
+                            Admin
+                        </td>
+                        <td>
+                            19/09/2023
+                        </td>
+                        <td style="display: grid; align-items:center; justify-content:start; gap:2px;">
+                            <button type="button" class="btn btn-success">Change</button>
+                            <button type="button" class="btn btn-primary">Update</button>
                             <button type="button" class="btn btn-danger">Hapus</button>
                         </td>
                     </tr>
