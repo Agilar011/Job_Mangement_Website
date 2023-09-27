@@ -62,7 +62,7 @@
                                                 -
                                             @endif
                                         </td>
-                                        <td style="max-width: 120px; white-space: pre;">
+                                        <td style="max-width: 120px;">
                                             @if ($activity->laporan_aktifitas != null)
                                                 {{ $activity->laporan_aktifitas }}
                                             @else
@@ -131,12 +131,23 @@
                                             @else
                                                 -
                                             @endif
+                                            @if ($activity->foto1 != null)
+                                                <img src="{{ asset('public/checkout_photos/' . $activity->foto1) }}"
+                                                    alt="" style="width: 100px">
+                                            @else
+                                                -
+                                            @endif
+                                            storage\app\checkout_photos
 
                                             @if ($activity->foto2 != null)
                                                 <img src="{{ asset('public/checkout_photos/' . $activity->foto2) }}"
                                                     alt="" style="width: 100px">
                                             @else
                                                 -
+                                            @endif
+
+                                            @if ($activity->foto2)
+                                                <img src="{{ asset('storage/' . $activity->foto2) }}" alt="Foto 2">
                                             @endif
 
                                         </td>

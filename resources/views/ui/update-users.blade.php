@@ -27,7 +27,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body bg-white">
-                            <form method="POST" action="{{ route('updateUser', ['id' => $user->id]) }}">
+                            <form method="POST" action="{{ route('storeUpdateUser', ['id' => $user->id]) }}">
                                 @csrf
                                 {{-- @method('PUT') --}}
 
@@ -38,12 +38,12 @@
 
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control" style="background: rgb(233, 232, 232); color:#000;"value="{{ $user->email }}" disabled>
+                                    <input type="email" name="email" class="form-control" style="background: rgb(233, 232, 232); color:#000;"value="{{ $user->email }}" readonly>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
-                                    <textarea name="alamat" class="form-control" style="background: white; color:#000;" value="{{ $user->alamat }}" required></textarea>
+                                    <input name="alamat" class="form-control" style="background: white; color:#000;" value="{{ $user->alamat }}" required>
                                 </div>
 
                                 <div class="form-group">
