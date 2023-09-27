@@ -49,7 +49,7 @@
                                     <tr>
                                         <td scope="row">{{ date('d-m-Y', strtotime($activity->created_at)) }}</td>
                                         <td>
-                                            {{ $activity->user->name }}
+                                            {{-- {{ $activity->user->name }} --}}
                                         </td>
                                         <td>{{ date('H:i', strtotime($activity->created_at)) }}</td>
                                         <td style="max-width: 120px">
@@ -72,18 +72,29 @@
                                         </td>
                                         <td>
                                             @if ($activity->foto1 != null)
-                                                <img src="{{ asset('public/checkout_photos/' . $activity->foto1) }}"
+                                                <img src="{{ asset('storage/' . $activity->foto1) }}"
                                                     alt="" style="width: 100px">
                                             @else
                                                 -
                                             @endif
 
                                             @if ($activity->foto2 != null)
-                                                <img src="{{ asset('public/checkout_photos/' . $activity->foto2) }}"
-                                                    alt="" style="width: 100px">
+                                            <img src="{{ asset('storage/' . $activity->foto2) }}" alt="Foto 2" style="width: 100px">
                                             @else
                                                 -
                                             @endif
+
+                                            {{-- <img src="{{ asset('storage/' . $activity->foto1) }}"
+                                            alt="" style="width: 100px">
+
+                                            @if ($activity->foto2)
+                                                <img src="{{ asset('storage/' . $activity->foto1) }}" width="100px" alt="Foto 2">
+                                            @else
+                                                <p>Foto 2 tidak tersedia</p>
+                                            @endif
+
+                                            <img src="{{ asset('storage/' . $activity->foto2) }}" width="100px"
+                                                alt="Foto 2" style="width: 100px"> --}}
 
                                         </td>
                                         <td>
@@ -126,28 +137,15 @@
                                         </td>
                                         <td>
                                             @if ($activity->foto1 != null)
-                                                <img src="{{ asset('public/checkout_photos/' . $activity->foto1) }}"
-                                                    alt="" style="width: 100px">
+                                                <img src="{{ asset('storage/' . $activity->foto1) }} " style="width: 100px">
                                             @else
                                                 -
                                             @endif
-                                            @if ($activity->foto1 != null)
-                                                <img src="{{ asset('public/checkout_photos/' . $activity->foto1) }}"
-                                                    alt="" style="width: 100px">
-                                            @else
-                                                -
-                                            @endif
-                                            storage\app\checkout_photos
 
                                             @if ($activity->foto2 != null)
-                                                <img src="{{ asset('public/checkout_photos/' . $activity->foto2) }}"
-                                                    alt="" style="width: 100px">
+                                                <img src="{{ asset('storage/' . $activity->foto2) }}" width="100px">
                                             @else
                                                 -
-                                            @endif
-
-                                            @if ($activity->foto2)
-                                                <img src="{{ asset('storage/' . $activity->foto2) }}" alt="Foto 2">
                                             @endif
 
                                         </td>
