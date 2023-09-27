@@ -84,18 +84,6 @@
                                                 -
                                             @endif
 
-                                            {{-- <img src="{{ asset('storage/' . $activity->foto1) }}"
-                                            alt="" style="width: 100px">
-
-                                            @if ($activity->foto2)
-                                                <img src="{{ asset('storage/' . $activity->foto1) }}" width="100px" alt="Foto 2">
-                                            @else
-                                                <p>Foto 2 tidak tersedia</p>
-                                            @endif
-
-                                            <img src="{{ asset('storage/' . $activity->foto2) }}" width="100px"
-                                                alt="Foto 2" style="width: 100px"> --}}
-
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-primary">Update</button>
@@ -137,13 +125,14 @@
                                         </td>
                                         <td>
                                             @if ($activity->foto1 != null)
-                                                <img src="{{ asset('storage/' . $activity->foto1) }} " style="width: 100px">
+                                                <img src="{{ asset('storage/' . $activity->foto1) }}"
+                                                    alt="" style="width: 100px">
                                             @else
                                                 -
                                             @endif
 
                                             @if ($activity->foto2 != null)
-                                                <img src="{{ asset('storage/' . $activity->foto2) }}" width="100px">
+                                            <img src="{{ asset('storage/' . $activity->foto2) }}" alt="Foto 2" style="width: 100px">
                                             @else
                                                 -
                                             @endif

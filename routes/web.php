@@ -31,19 +31,23 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-])->group(function ()    {
+])->group(function () {
     Route::get('/presensi', function () {
         return view('ui.presensi');
     })->name('presensi');
 });
 
-Route::get('/presensi/{id}', [ActivityController::class, 'index'])->name('displayPresensi');
-Route::post('/checkin/checkin', [ActivityController::class, 'checkIn'])->name('checkin.checkin');
-Route::post('/checkout/checkout', [ActivityController::class, 'checkOut'])->name('checkout.checkout');
-Route::get('/aktivitas', [ActivityController::class, 'showActivity'])->name('showActivity');
-Route::get('/users', [ActivityController::class, 'showUser'])->name('showUser');
-Route::post('/changerole/{id}', [UserController::class, 'changeRole'])->name('changeRole');
-Route::post('/deleteuse/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
-Route::post('/updateUser/{id}', [UserController::class, 'updateUser'])->name('updateUser');
-Route::post('/storeUpdateUser/{id}', [UserController::class, 'storeUpdateUser'])->name('storeUpdateUser');
+Route::middleware('auth')->group(function () {
+    Route::middleware('hakAkses:admin,user')->group(function () {
+        Route::get('/presensi/{id}', [ActivityController::class, 'index'])->name('displayPresensi');
+        Route::post('/checkin/checkin', [ActivityController::class, 'checkIn'])->name('checkin.checkin');
+        Route::post('/checkout/checkout', [ActivityController::class, 'checkOut'])->name('checkout.checkout');
+        Route::get('/aktivitas', [ActivityController::class, 'showActivity'])->name('showActivity');
+        Route::post('/changerole/{id}', [UserController::class, 'changeRole'])->name('changeRole');
+        Route::post('/deleteuse/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
+        Route::post('/updateUser/{id}', [UserController::class, 'updateUser'])->name('updateUser');
+        Route::post('/storeUpdateUser/{id}', [UserController::class, 'storeUpdateUser'])->name('storeUpdateUser');
+        Route::get('/users', [ActivityController::class, 'showUser'])->name('showUser')->middleware('hakAkses:admin');
 
+    });
+});
