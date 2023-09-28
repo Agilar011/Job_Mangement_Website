@@ -310,10 +310,12 @@
                                 </p>
                             </a>
                         </li>
-
+                        @if (Auth::user()->role == 'admin')
                         <li class="nav-item">
+
                             <a href="/users" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
+
                                 <p>
                                     Data Pengguna
 
@@ -325,6 +327,11 @@
                                 </p>
                             </a>
                         </li>
+                                @else
+
+                                @endif
+
+
 
                         {{-- <li class="nav-header">MISCELLANEOUS</li>
                         <li class="nav-item">

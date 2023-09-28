@@ -37,12 +37,16 @@ Route::middleware([
     })->name('presensi');
 });
 
+Route::get('/guest-alert', function () {
+    return view('ui.guest-alert');
+});
+
 Route::middleware('auth')->group(function () {
     Route::middleware('hakAkses:admin,user')->group(function () {
         Route::get('/presensi/{id}', [ActivityController::class, 'index'])->name('displayPresensi');
         Route::post('/checkin/checkin', [ActivityController::class, 'checkIn'])->name('checkin.checkin');
         Route::post('/checkout/checkout', [ActivityController::class, 'checkOut'])->name('checkout.checkout');
-        Route::get('/aktivitas', [ActivityController::class, 'showActivity'])->name('showActivity');
+        Route::get('/aktivitas', [ActivityController::class, 'showActivity'])->name('showActivity')->middleware('hakAkses2:guest');
         Route::post('/changerole/{id}', [UserController::class, 'changeRole'])->name('changeRole');
         Route::post('/deleteuse/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
         Route::post('/updateUser/{id}', [UserController::class, 'updateUser'])->name('updateUser');
