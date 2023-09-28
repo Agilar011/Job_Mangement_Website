@@ -86,8 +86,10 @@
 
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-primary">Update</button>
-                                            <button type="button" class="btn btn-danger">Hapus</button>
+                                            <form method="POST" action="{{ route('destroyActivity', $activity->id) }}">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -65,10 +65,11 @@ class ActivityController extends Controller
         return redirect()->route('activities.index')->with('success', 'Aktivitas berhasil diperbarui.');
     }
 
-    public function destroy(Activity $activity)
+    public function destroy($id)
     {
+        $activity = Activity::find($id);
         $activity->delete();
-        return redirect()->route('activities.index')->with('success', 'Aktivitas berhasil dihapus.');
+        return redirect()->back()->with('success', 'User berhasil dihapus.');
     }
 
     public function checkIn(Request $request)
