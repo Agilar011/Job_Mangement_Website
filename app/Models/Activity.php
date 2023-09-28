@@ -10,6 +10,7 @@ class Activity extends Model
 
     protected $fillable = [
         'id_user',
+        'nama',
         'rencana_aktifitas',
         'laporan_aktifitas',
         'progres_harian',

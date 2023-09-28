@@ -56,10 +56,10 @@
                                     <input type="text" name="status" class="form-control"   style="background: rgb(233, 232, 232); color:#000;" disabled>
                                 </div> --}}
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="tgl_join">Tanggal Join</label>
                                     <input type="date" name="tgl_join" class="form-control" style="background: white; color:#000;" value="{{ $user->created_at->format('Y-m-d') }}" disabled>
-                                </div>
+                                </div> --}}
 
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>

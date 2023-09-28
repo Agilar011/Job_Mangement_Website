@@ -292,6 +292,8 @@
                             </a>
                         </li>
 
+                        <li class="nav-header">DATA</li>
+
                         <li class="nav-item">
                             <a href="/aktivitas" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>

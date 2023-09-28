@@ -11,6 +11,7 @@ class CreateActivityTable extends Migration
         Schema::create('activity', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user');
+            $table->string('nama');
             $table->text('rencana_aktifitas');
             $table->text('laporan_aktifitas')->nullable();
             $table->integer('progres_harian')->default(0);

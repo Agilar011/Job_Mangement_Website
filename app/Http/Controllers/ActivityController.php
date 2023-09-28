@@ -80,6 +80,7 @@ class ActivityController extends Controller
 
         Activity::create([
             'id_user' => auth()->user()->id,
+            'nama' => auth()->user()->name,
             'rencana_aktifitas' => $formattedText,
             'created_at' => now(),
         ]);
@@ -160,3 +161,6 @@ class ActivityController extends Controller
         return view('ui.users', compact('user'));
     }
 }
+
+
+

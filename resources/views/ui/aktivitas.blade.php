@@ -49,7 +49,7 @@
                                     <tr>
                                         <td scope="row">{{ date('d-m-Y', strtotime($activity->created_at)) }}</td>
                                         <td>
-                                            {{-- {{ $activity->user->name }} --}}
+                                            {{ $activity->nama }}
                                         </td>
                                         <td>{{ date('H:i', strtotime($activity->created_at)) }}</td>
                                         <td style="max-width: 120px">
@@ -102,7 +102,7 @@
                                     <tr>
                                         <td scope="row">{{ date('d-m-Y', strtotime($activity->created_at)) }}</td>
                                         <td>
-                                            {{ $activity->user->name }}
+                                            {{ $activity->nama }}
                                         </td>
                                         <td>{{ date('H:i', strtotime($activity->created_at)) }}</td>
                                         <td style="max-width: 120px">
