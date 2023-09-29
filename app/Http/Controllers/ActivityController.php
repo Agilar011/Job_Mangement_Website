@@ -75,6 +75,7 @@ class ActivityController extends Controller
     public function checkIn(Request $request)
     {
         $inputText = $request->input('deskripsi');
+        $inputTime = $request->jamCheckIn;
         $lines = explode(PHP_EOL, $inputText);
         $lines = array_map('trim', $lines);
         $formattedText = implode(PHP_EOL, $lines);
@@ -83,9 +84,11 @@ class ActivityController extends Controller
             'id_user' => auth()->user()->id,
             'nama' => auth()->user()->name,
             'rencana_aktifitas' => $formattedText,
-            'created_at' => now(),
+            'created_at' => $inputTime,
         ]);
-
+        $activity = Activity::where('id_user', auth()->user()->id)->whereDate('created_at', today())->firstOrFail();
+        $activity->updated_at = null;
+        $activity->save();
         return redirect()->back();
     }
 

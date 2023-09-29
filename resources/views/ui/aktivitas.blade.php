@@ -35,7 +35,12 @@
                         <th scope="col">Wkt. Check Out</th>
                         <th scope="col">Laporan</th>
                         <th scope="col">Foto</th>
-                        <th scope="col">Action</th>
+                        @if (Auth::user()->role == 'admin')
+                            <th scope="col">Action</th>
+
+                        @else
+
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -140,10 +145,7 @@
                                             @endif
 
                                         </td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary">Update</button>
-                                            <button type="button" class="btn btn-danger">Hapus</button>
-                                        </td>
+
                                     </tr>
                                 @endforeach
                             </ul>

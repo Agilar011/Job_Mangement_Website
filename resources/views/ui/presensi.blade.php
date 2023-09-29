@@ -34,7 +34,8 @@
                 <h5>Rencana Kegiatan :</h5>
                 <textarea class="form-control bg-white" id="deskripsiCheckIn" placeholder="Hari ini rencana mau ngapain..."
                     name="deskripsi" required></textarea>
-                <h5>Sekarang Pukul : <span id="jamCheckIn"></span></h5>
+
+                <h5>Sekarang Pukul : <span id="jamCheckIn" name="jamCheckIn"></span></h5>
                 <div class="btn-check">
                     <button class="check-in" type="submit">Check In</button>
                 </div>
